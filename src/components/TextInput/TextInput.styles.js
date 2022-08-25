@@ -3,6 +3,7 @@ import { Button, styled, TextField, Box } from "@mui/material";
 export const StyledTextInputBox = styled(Box)`
   margin-top: 10px;
 `;
+
 export const StyledTextInput = styled(TextField)`
   input {
     padding: 10px;

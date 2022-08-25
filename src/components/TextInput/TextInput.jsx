@@ -9,11 +9,12 @@ import {
 
 const TextInput = ({ setMessages, user }) => {
   const [messageVal, setMessageVal] = useState("");
+
   const handleNewMessage = (e) => {
+    e.preventDefault();
     if (messageVal.length === 0) {
       return;
     }
-    e.preventDefault();
     const newMessageObj = {
       user: user,
       message: messageVal,
@@ -21,8 +22,9 @@ const TextInput = ({ setMessages, user }) => {
     setMessages((messages) => [...messages, newMessageObj]);
     setMessageVal("");
   };
-  // controlled text field
+
   const handleMessageChange = (e) => setMessageVal(e.target.value);
+
   return (
     <StyledTextInputBox className="text-input">
       <StyledForm onSubmit={handleNewMessage}>

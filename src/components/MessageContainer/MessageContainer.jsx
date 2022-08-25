@@ -10,9 +10,9 @@ import {
 const MessageContainer = React.forwardRef((props, ref) => {
   const { user, sender, messages, setMessages, scrollToBottom } = props;
 
-  // useEffect(() => {
-  //   scrollToBottom();
-  // }, [messages]);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   return (
     <StyledMessageBox elevation={3}>

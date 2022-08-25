@@ -1,5 +1,5 @@
-import { Typography, Paper } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Typography } from "@mui/material";
 import { StyledTextBox, StyledMessageBox } from "./TextBox.styles";
 
 const TextBox = ({ message, user }) => {

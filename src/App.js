@@ -4,26 +4,30 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import MessageContainer from "./components/MessageContainer/MessageContainer";
-import { StyledChatApp } from "./App.styles";
+import { StyledChatApp, StyledDivider } from "./App.styles";
 
 function App() {
   const [messages, setMessages] = useState([
-    { user: "Peralta", message: "wazzup" },
-    { user: "Boyle", message: "nothin. wuwu?" },
+    { user: "Peralta", message: "what's up?" },
+    { user: "Boyle", message: "not much. you?" },
   ]);
   const [value, setValue] = React.useState("1");
+  const users = ["Peralta", "Boyle"];
+  const desktopSize = useMediaQuery("(min-width:600px)");
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const desktopSize = useMediaQuery("(min-width:600px)");
+
   const ref = React.createRef();
   const scrollToBottom = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
-  const users = ["Peralta", "Boyle"];
+  
   return (
     <StyledChatApp>
       <Typography variant="h1">chat app</Typography>
+      <StyledDivider />
       {!desktopSize && (
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

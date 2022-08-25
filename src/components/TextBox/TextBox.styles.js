@@ -1,4 +1,4 @@
-import { Box, Paper, styled, Typography } from "@mui/material";
+import { Box, Paper, styled } from "@mui/material";
 
 export const StyledTextBox = styled(Box)`
   display: flex;
@@ -37,10 +37,6 @@ export const StyledTextBox = styled(Box)`
     align-items: center;
     justify-content: flex-end;
     flex-direction: row-reverse;
-    /* .MuiPaper-root {
-      background-color: rgba(255, 166, 0, 0.7);
-      color: #000000;
-    } */
     .username {
       background-color: #a22725;
       color: #ffffff;
