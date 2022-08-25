@@ -26,10 +26,10 @@ const TextInput = ({ setMessages, user }) => {
   const handleMessageChange = (e) => setMessageVal(e.target.value);
 
   return (
-    <StyledTextInputBox className="text-input">
+    <StyledTextInputBox data-testid="text-input">
       <StyledForm onSubmit={handleNewMessage}>
         <StyledTextInput
-          placeholder="type your message"
+          placeholder="say something..."
           value={messageVal}
           onChange={handleMessageChange}
           multiline
@@ -41,7 +41,11 @@ const TextInput = ({ setMessages, user }) => {
             }
           }}
         />
-        <StyledSubmitButton type="submit" disabled={messageVal.length === 0}>
+        <StyledSubmitButton
+          type="submit"
+          disabled={messageVal.length === 0}
+          aria-label="send message"
+        >
           <SendIcon fontSize="small" />
         </StyledSubmitButton>
       </StyledForm>
