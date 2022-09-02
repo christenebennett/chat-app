@@ -10,7 +10,7 @@ To run this project locally, first run `npm install`, then run `npm start`. The 
 
 Tests for each component can be found in its component folder. To run the test suites and view the coverage report, run `npm run test:coverage`.
 
-For a more visual report, the Istanbul code coverage report can be accessed by opening up the `coverage` folder, then `lcov-report` and then opening up the `index.html` in a browser.
+For a more visual report, the Istanbul code coverage report can be accessed by opening up `coverage` > `lcov-report` and then opening up `index.html` in a browser.
 
 It should look something like this:
 
