@@ -20,14 +20,33 @@ describe("App", () => {
   });
 
   test("renders the App", () => {
+    // Arrange
     render(<App />);
+    // Assert
     expect(screen.getByText("chat app")).toBeVisible();
   });
 
   test("it switches between tabs", () => {
+    // Arrange
     window.resizeTo(375, 667);
     render(<App />);
+    // Act
     userEvent.click(screen.getByTestId("Boyle-tab"));
+    // Assert
     expect(screen.getByText(/To: Peralta/i)).toBeVisible();
+  });
+
+  test("a new message is visible after submission", () => {
+    // Arrange
+    render(<App />);
+    const inputEl = screen.getByPlaceholderText("say something...");
+    // Act
+    userEvent.type(inputEl, "hello world");
+    userEvent.click(screen.getByRole("button"));
+    // Assert
+    expect(inputEl).toHaveValue("");
+    expect(screen.getByTestId("messages-container")).toHaveTextContent(
+      /hello world/i
+    );
   });
 });
