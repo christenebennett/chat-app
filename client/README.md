@@ -6,3 +6,5 @@ A two-way messaging app simulator built with React. Material UI and Styled Compo
 
 To run this project locally, first run `npm install`, then run `npm start`. The project can be viewed in the browser at [http://localhost:3000](http://localhost:3000).
 
+## BONUS: Addition of Tests
+Tests for each component can be found in its component folder. To run the test suites and view the coverage report, run `npm run test:coverage`. 
