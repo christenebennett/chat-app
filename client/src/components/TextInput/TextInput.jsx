@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
 import SendIcon from "@mui/icons-material/Send";
 import {
   StyledSubmitButton,
@@ -7,8 +8,16 @@ import {
   StyledTextInputBox,
 } from "./TextInput.styles";
 
-const TextInput = ({ setMessages, user }) => {
+const socket = io.connect("http://localhost:3001");
+
+const TextInput = ({ setMessages, user, messages }) => {
   const [messageVal, setMessageVal] = useState("");
+
+  const sendMessage = () => {
+    socket.emit("send_message", {
+      message: messages,
+    });
+  };
 
   const handleNewMessage = (e) => {
     e.preventDefault();

@@ -31,7 +31,12 @@ const MessageContainer = React.forwardRef((props, ref) => {
           <div ref={ref} />
         </StyledMessageList>
       </div>
-      <StyledTextInput setMessages={setMessages} user={user} multiline />
+      <StyledTextInput
+        setMessages={setMessages}
+        user={user}
+        messages={messages}
+        multiline
+      />
     </StyledMessageBox>
   );
 });
