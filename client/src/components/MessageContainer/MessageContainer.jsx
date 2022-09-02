@@ -17,7 +17,7 @@ const MessageContainer = React.forwardRef((props, ref) => {
   return (
     <StyledMessageBox elevation={3}>
       <Typography variant="h2">To: {sender}</Typography>
-      <div className="messages-container">
+      <div data-testid="messages-container" className="messages-container">
         <StyledMessageList className="messages">
           {messages.map((message, index) => (
             <StyledTextBox

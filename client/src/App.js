@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createRef } from "react";
 import { Box, Tab, Typography, useMediaQuery } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -21,14 +21,11 @@ function App() {
     setValue(newValue);
   };
 
-  const ref = React.createRef();
+  const ref = createRef();
   const scrollToBottom = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    console.log("messages", messages);
-  });
   return (
     <StyledChatApp>
       <Typography variant="h1">chat app</Typography>
@@ -40,6 +37,7 @@ function App() {
               {users.map((user, index) => {
                 return (
                   <Tab
+                    data-testid={user + "-tab"}
                     label={user}
                     value={(index + 1).toString()}
                     key={user + index}

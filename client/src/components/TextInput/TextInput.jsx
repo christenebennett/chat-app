@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import {
   StyledSubmitButton,
@@ -7,7 +7,7 @@ import {
   StyledTextInputBox,
 } from "./TextInput.styles";
 
-const TextInput = ({ setMessages, user, messages }) => {
+const TextInput = ({ setMessages, user }) => {
   const [messageVal, setMessageVal] = useState("");
 
   const handleNewMessage = (e) => {

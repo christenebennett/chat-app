@@ -19,4 +19,27 @@ describe("Text Input", () => {
     // Assert
     expect(inputEl).toHaveValue("oh hi mark");
   });
+
+  test("expect input to be empty after message submission", () => {
+    // Arrange
+    const mockSetMessages = jest.fn();
+    render(<TextInput setMessages={mockSetMessages} user="Leslie" />);
+    // Act
+    const inputEl = screen.getByPlaceholderText("say something...");
+    userEvent.type(inputEl, "oh hi mark");
+    userEvent.click(screen.getByRole("button"));
+    // Assert
+    expect(inputEl).toHaveValue("");
+  });
+
+  test("nothing will happen when empty message is sent by pressing enter", () => {
+    // Arrange
+    const mockSetMessages = jest.fn();
+    render(<TextInput setMessages={mockSetMessages} user="Leslie" />);
+    // Act
+    const inputEl = screen.getByPlaceholderText("say something...");
+    userEvent.type(inputEl, "{enter}");
+    // Assert
+    expect(mockSetMessages).not.toHaveBeenCalled();
+  });
 });
