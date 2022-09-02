@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
 import { Box, Tab, Typography, useMediaQuery } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import MessageContainer from "./components/MessageContainer/MessageContainer";
 import { StyledChatApp, StyledDivider } from "./App.styles";
-
-const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [messages, setMessages] = useState([
@@ -18,31 +15,6 @@ function App() {
   const [value, setValue] = React.useState("1");
   const users = ["Peralta", "Boyle"];
   const desktopSize = useMediaQuery("(min-width:600px)");
-
-  useEffect(() => {
-    socket.on("receive_message", (data) => {
-      console.group("useEffect socket");
-      console.log("messages when socket changes", messages);
-      console.log("socket changed!");
-      console.log("data.message in socket useEffect", data);
-      console.groupEnd();
-      setMessages(data.message);
-    });
-  }, [socket]);
-
-  const handleAddNewMessage = (user, msg) => {
-    const newMessageObj = {
-      user,
-      message: msg,
-    };
-    setMessages((messages) => [...messages, newMessageObj]);
-  };
-
-  const sendMessage = () => {
-    socket.emit("send_message", {
-      message: messages,
-    });
-  };
 
   // handle changing tabs
   const handleChange = (event, newValue) => {
